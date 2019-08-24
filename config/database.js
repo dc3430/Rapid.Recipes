@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/recipes', {
+mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/recipes', {
     useNewUrlParser: true,
     useCreateIndex: true
 });
@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/recipes', {
 var db = mongoose.connection;
 
 db.on('connected', function() {
-    console.log(`Connected to MongoDBat ${db.host}:${db.port}`);
+    console.log(`${db.name} Connected ${db.host}:${db.port}`);
 });
 
 db.on('err', function() {
