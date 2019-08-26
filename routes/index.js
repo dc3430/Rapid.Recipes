@@ -1,11 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var indexCtrl = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.redirect('/recipes');
-});
+router.get('/', indexCtrl.index);
+
+
+// router.get('/', function(req, res, next) {
+//   res.redirect('/index');
+// });
 
 // The root route renders our only view
 // router.get('/', function(req, res) {
@@ -23,14 +27,14 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect: '/recipes',
-    failureRedirect: '/recipes'
+    failureRedirect: '/'
   }
 ));
 
 //OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/recipes');
+  res.redirect('/');
 });
 
 module.exports = router;
