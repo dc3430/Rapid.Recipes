@@ -1,6 +1,6 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-var Recipe = require('../models/recipe')
+var User = require('../models/user')
 
 passport.use(new GoogleStrategy({
      clientID: process.env.GOOGLE_CLIENT_ID,
@@ -8,32 +8,32 @@ passport.use(new GoogleStrategy({
      callbackURL: process.env.GOOGLE_CALLBACK
     },
     function(accessToken, refreshToken, profile, cb) {
-        Recipe.findOne({ 'googleId': profile.id }, function(err, recipe) {
+        User.findOne({ 'googleId': profile.id }, function(err, user) {
           if (err) return cb(err);
-          if (recipe) {
-            return cb(null, recipe);
+          if (user) {
+            return cb(null, user);
           } else {
             // we have a new User via OAuth!
-            var newRecipe = new Recipe({
+            var newUser = new User({
               name: profile.displayName,
               email: profile.emails[0].value,
               googleId: profile.id
             });
-            newRecipe.save(function(err) {
+            newUser.save(function(err) {
               if (err) return cb(err);
-              return cb(null, newRecipe);
+              return cb(null, newUser);
             });
           }
         });
       }
     ));
 
-    passport.serializeRecipe(function(recipe, done) {
-        done(null, recipe.id);
+    passport.serializeuser(function(user, done) {
+        done(null, user.id);
     });
     
-    passport.deserializeRecipe(function(id, done) {
-        Recipe.findById(id, function(err, recipe) {
-            done(err, recipe);
+    passport.deserializeuser(function(id, done) {
+        User.findById(id, function(err, user) {
+            done(err, user);
         });
     });

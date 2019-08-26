@@ -1,8 +1,10 @@
+var User = require('../models/user')
+
 module.exports = {
-    index
+    index,
 };
 
-function index(req, res) {
+function index(req, res, next) {
     res.render('index', {
         user: req.user,
         name: req.query.name,

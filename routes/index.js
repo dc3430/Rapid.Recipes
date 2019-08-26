@@ -3,13 +3,13 @@ var router = express.Router();
 var passport = require('passport');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.redirect('/recipes');
+router.get('/', function(req, res) {
+  res.redirect('/index', { title: 'Rapid Recipes' });
 });
 
 // The root route renders our only view
 // router.get('/', function(req, res) {
-//   res.redirect('/recipes');
+//   res.redirect('/');
 // })
 
 //Goolge OAuth login route
@@ -22,15 +22,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/recipes',
-    failureRedirect: '/recipes'
+    successRedirect: '/users',
+    failureRedirect: '/'
   }
 ));
 
 //OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/recipes');
+  res.redirect('/users');
 });
 
 module.exports = router;

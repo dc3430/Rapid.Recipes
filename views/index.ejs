@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= Rapid Recipes %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= Rapid Recipes %></h1>
-    <p>Welcome to <%= Rapid %></p>
-  </body>
-</html>
+<%- include('./partials/header') %>
+   
+<form action="/" method="POST">
+  <h1> Welcome to Rapid Recipes </h1>
+  <ul class="right">
+    <li>
+    
+      <a href="/logout">Log Out</a>
+    
+      <a href="/auth/google">Login with Google</a>
+    
+    </li>
+  </ul>
+</form>  
+
+<%- include('./partials/footer') %>
