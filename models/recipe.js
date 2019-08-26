@@ -2,12 +2,18 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    googleId: String
-}, {
-    timestamps: true
+var RecipeSchema = new Schema({
+    categories: {
+        type: String,
+        enum: [Breakfast, lunch, Dinner]
+    },
+    ingredients: {
+        type: String,
+
+    },
+    author: {
+        name: String,
+    }
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Recipes', recipeSchema);
