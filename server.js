@@ -3,8 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
 var passport = require('passport');
+var session = require('express-session');
 
 // load the env vars
 require('dotenv').config();
