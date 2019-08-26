@@ -1,4 +1,4 @@
-var Recipe = require('../models/recipe');
+var Recipe = require('../models/user');
 
 module.exports = {
     index,
