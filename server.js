@@ -21,6 +21,9 @@ require('./config/passport')
 var indexRouter = require('./routes/index');
 var recipesRouter = require('./routes/recipes');
 var categoriesRouter = require('./routes/categories');
+//var breakfastRouter = require('./routes/breakfast');
+//var lunchRouter = require('./routes/lunch');
+//var dinnerRouter = require('./routes/dinner');
 
 
 // view engine setup
@@ -42,7 +45,10 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/recipes', recipesRouter);
-app.use('/catergories', categoriesRouter);
+app.use('/categories', categoriesRouter);
+// app.use('/breakfast', breakfastRouter);
+// app.use('/lunch', lunchRouter);
+// app.use('/dinner', dinenerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -16,6 +16,15 @@ a {
   font-size: 20px;
 }
 
+.p1 {
+  font-size: 35px;
+  color: azure;
+}
+.p2 {
+  color: azure;
+  font-size: 20px;
+}
+
 .nav1 {  
   text-align: center;
   padding: 2px;
@@ -31,7 +40,11 @@ a {
 #block1 {
 border-style: hidden;
 }
-
+#block2 {
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
 .sect1 {
   text-align: center;
   font-size: 20px;
@@ -55,6 +68,11 @@ border-style: hidden;
 }
 .sect2 img {
   display: center;
+}
+
+.sect4, .sect5, .sect6, sec7, .sect8 {
+  padding: 10px;
+  margin: 10px;
 }
 
 .footer {
