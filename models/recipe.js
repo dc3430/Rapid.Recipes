@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var RecipeSchema = new Schema({
-    categories: {
+var recipeSchema = new Schema({
+    recipe: {
+        name: String,
         type: String,
-        enum: [Breakfast, lunch, Dinner]
     },
     ingredients: {
         type: String,

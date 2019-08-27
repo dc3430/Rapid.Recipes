@@ -4,7 +4,7 @@ var recipesCtrl = require('../controllers/recipes');
 
 
 // GET /recipes
-router.get('/recipes', recipesCtrl.index);
+router.get('/', recipesCtrl.index);
 
 /* GET users listing. */
 // router.get('/', function(req, res, next) {

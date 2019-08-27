@@ -5,8 +5,8 @@ var Schema = new Schema;
 
 var ingredientSchema = new Schema({
     ingredient: {
+        name: String,
         type: [],
-        name: String
     },
     price: {
         type: Number,
