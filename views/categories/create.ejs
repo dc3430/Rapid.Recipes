@@ -15,10 +15,20 @@
             <a href="/recipes">Home</a>
         </nav>
 
-        <label for="ingredients">Ingredients
-            <textarea rows="4" cols="50">
-            </textarea>
-            <input type="Add Ingredients">
+    <form method="POST" action="/create">
+        <label>Title: 
+        <textarea rows="3" cols="30"></textarea>
         </label>
+        <label>Ingredients: 
+            <textarea rows="3" cols="30"></textarea>
+        </label>
+        <label>Instruction: 
+            <textarea rows="3" cols="30"></textarea>
+        </label>
+        <label>Auther: 
+            <textarea rows="3" cols="30"></textarea>
+        </label>
+        <button type="submit">Add Recipe</button>
+    </form>
 </body>
 </html>

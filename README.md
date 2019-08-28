@@ -1,6 +1,6 @@
 # Rapid.Recipes - An app to find recipe quick and easy!
 
-- [] Getting Started: In this section include the link to your deployed app and any instructions you deem important.
+- [] Getting Started: In this section include the link to your deployed app and any instructions you deem important. https://rapidrecipes.herokuapp.com/recipes#
 
 - [X] <Your app title>: A description of your app. Background info of the game is a nice touch.
 1. When you click on the link to Rapid Recipes you will be asked to log in.
