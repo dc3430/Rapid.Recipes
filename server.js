@@ -19,7 +19,6 @@ require('./config/passport')
 
 var indexRouter = require('./routes/index');
 var recipesRouter = require('./routes/recipes');
-var categoriesRouter = require('./routes/categories');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,9 +39,8 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
-app.use('/recipes', recipesRouter);
-app.use('/categories', categoriesRouter);
 
+app.use('/recipes', recipesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

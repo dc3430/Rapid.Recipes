@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
   res.redirect('/recipes');
 });
 
-
 //Goolge OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -26,7 +25,7 @@ router.get('/oauth2callback', passport.authenticate(
 //OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('users'); // go back to a PUBLIC route
+  res.redirect('/'); // go back to a PUBLIC route
 });
 
 module.exports = router;
