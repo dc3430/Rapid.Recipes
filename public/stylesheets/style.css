@@ -1,3 +1,9 @@
+/* * {
+  box-sizing: border-box;
+  background: rgba(255, 0, 0, 0.81);
+  font-family: 'Domine', serif;
+} */
+
 body {
   padding: 50px;
   font: 16px; 

@@ -23,7 +23,7 @@ var recipeSchema = new Schema({
     instruction: {
         type: String,
     },
-    catergory: {
+    category: {
         type: String,
     },
     user: [{

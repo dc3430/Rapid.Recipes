@@ -9,6 +9,11 @@ router.get('/new', recipesCtrl.new);//form to add a new recipe
 router.post('/', recipesCtrl.createRecipe);//will add the recipe to the database
 router.put('/:id/edit', recipesCtrl.edit);//will bring up the form to update the recipe
 router.delete('/:id/delete', recipesCtrl.delete)//will delete the recipe from the database
+// router.get('/:id/edit', recipesCtrl.editRecipe),
+// router.post('/', recipesCtrl.)
+
+
+//install isLoggedIn,before recipeCtrl
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();
