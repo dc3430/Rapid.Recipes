@@ -7,11 +7,6 @@ router.get('/', function(req, res, next) {
   res.redirect('/recipes');
 });
 
-// The root route renders our only view
-// router.get('/', function(req, res) {
-//   res.redirect('/recipes');
-// })
-
 //Goolge OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -23,14 +18,14 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect: '/recipes',
-    failureRedirect: '/recipes'
+    failureRedirect: '/'
   }
 ));
 
 //OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/recipes');
+  res.redirect('/'); // go back to a PUBLIC route
 });
 
 module.exports = router;
