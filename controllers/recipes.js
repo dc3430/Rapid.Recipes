@@ -5,30 +5,15 @@ module.exports = {
   show, // show one
   createRecipe, // create new recipe
   new: newRecipe, // serve new recipe form (can be served for update too)
-  edit: updateRecipe, // update recipe
+  edit, // update recipe
   delete: deleteRecipe, // delete your recipe
-  edit
-  
+  update
 }
 
-// post.save(function(req, res) {
-//   if (!err) {
-//     post.find({})
-//       .populate('postedBy')
-//       .populate('comments.postBy')
-//       .exec(function(err, post) {
-//          console.log(JSON.stringify(posts, null, "\t"))
-//        });
-//   }
-// });
 
-function edit(req, res) {
-  recipe.findById(req.params.id, function(err, recipe) {
-    res.render('recipe/editRecipes', {
-      recipe, 
-      title: 'Modify your Recipe',
-      user: req.user,
-    });
+function update(req, res) {
+  Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, recipe) {
+    res.render(`recipes/show`);
   });
 }
 
@@ -43,7 +28,7 @@ function index(req, res) {
 function show(req, res) {
   // Recipe Details
   Recipe.findById(req.params.id, function(err, recipe) {
-    res.render(`recipes/new`, { title: 'Recipe Details', recipe });
+    res.render('recipes/show', { title: 'Recipe Details', recipe });
   });
 }
 
@@ -57,17 +42,20 @@ function createRecipe(req, res) {
     });
 }
 
-function updateRecipe (req, res) {
-  // update recipe
-  Recipe.findByIdAndUpdate(req.params.id, req.body, function(err, recipe) {
-    res.render('/editRecipe');
-  });
+function edit(req, res) {
+  Recipe.findById(req.params.id, (err, recipe) => {
+    if (err) throw err
+    res.render('recipes/edit', { 
+      recipe,
+      user: req.user 
+    })
+  })
 }
 
 function deleteRecipe(req, res){
     Recipe.findByIdAndDelete(req.params.id, function (err, recipe) {
         if (err) return res.redirect('/recipes')
-        res.redirect(`/recipes/${recipe._id}`);
+        res.redirect('/recipes');
     });
 }
 

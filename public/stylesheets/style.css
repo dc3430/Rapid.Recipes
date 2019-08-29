@@ -1,16 +1,17 @@
-/* * {
+ * {
   box-sizing: border-box;
-  background: rgba(255, 0, 0, 0.81);
+  background: rgba(255, 0, 0, 0.493);
   font-family: 'Domine', serif;
-} */
+} 
 
 body {
   padding: 50px;
-  font: 16px; 
+  color: white;
+  /* font: 16px; 
   font-family: 'Domine', serif;
   background: rgba(255, 0, 0, 0.81);
+} */
 }
-
 .header{
   font-size:40px;
   text-align: center;
@@ -23,12 +24,12 @@ a {
 }
 
 .p1 {
-  font-size: 35px;
+  font-size: 25px;
   color: azure;
 }
 .p2 {
   color: azure;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .nav1 {  
@@ -51,6 +52,12 @@ border-style: hidden;
   padding: 5px;
   margin: 5px;
 }
+#rec {
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+
 .sect1 {
   text-align: center;
   font-size: 20px;

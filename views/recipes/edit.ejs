@@ -9,18 +9,18 @@
       <title>Rapid Recipes</title>
     </head>
 <body>
-    <h1 class = "header">Rapid Recipes</h1>
+    <h1 class = "header">Edit Recipe | Rapid Recipes</h1>
         <nav class = "nav1">
             <a href="/recipes">Home</a>
             <a href="/logout"><i class="logout"></i>Log Out</a>
         </nav>
 
-    <form method="POST" action="/recipes">
+    <form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
         <label>Title: 
         <textarea name="title" rows="2" cols="20"></textarea>
         </label>
         <label >Ingredients: 
-            <textarea name="ingredients" rows="" cols="20"></textarea>
+            <textarea name="ingredients" rows="2" cols="20"></textarea>
         </label>
         <label>Instruction: 
             <textarea name="instruction" rows="2" cols="20"></textarea>

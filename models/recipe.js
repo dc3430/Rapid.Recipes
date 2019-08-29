@@ -2,24 +2,19 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-// var ingredientSchema = new Schema({
-//     ingredient: {
-//         name: String,
-//         type: String,
-//     },
-//     price: {
-//         type: Number,
-//         min: 0,
-//     }
-// });
+var ingredientSchema = new Schema({
+    ingredient: {
+        name: String,
+        type: String,
+        amount: String,
+    },
+});
 
 var recipeSchema = new Schema({
     title: {
         type: String,
     },
-    ingredients: { 
-        type: String,
-    },
+    ingredients: [ingredientSchema],
     instruction: {
         type: String,
     },
