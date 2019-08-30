@@ -35,13 +35,16 @@ function newRecipe(req, res) { // page adding the new recipes
   res.render('recipes/new', { user: req.user });
 }
 
-function createRecipe(req, res) { //the post 
-  Recipe.create(req.body, function(err, recipe) {
-    // console.log(something)
-    res.redirect('/ingredients/' + recipe._id);
-  });
-  // console.log(req.body)
-}
+function createRecipe(req, res) {
+  const recipe = new Recipe(req.body);
+  recipe.save(function(err) {
+    console.log(err);
+      if (err) {return res.render('recipes/new', {
+        contributor: req.user
+      })};
+        res.redirect('/recipes');
+    });
+};
 
 function edit(req, res) {
   Recipe.findById(req.params.id, (err, recipe) => {
@@ -59,4 +62,5 @@ function deleteRecipe(req, res){
       res.redirect('/recipes');
   });
 }
+
 
