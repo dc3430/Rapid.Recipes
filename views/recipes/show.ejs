@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <title>All Rapid Recipes</title>
+    </head>
+    <body>
+      <h1>Rapid Recipes</h1>
+      <nav class = "nav1">
+          <a href="/recipes">Home</a>
+          <a href="/logout"><i class="logout"></i>Log Out</a>
+          <a href="/recipes/<%= recipe._id %>/edit">Edit Recipes</a>
+          
+      </nav>
+    
+      <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Ingredients</th>
+        <th>Category</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.category %></td>
+        <td><%= recipe.user %></td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+    

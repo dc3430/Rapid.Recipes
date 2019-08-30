@@ -1,8 +1,8 @@
 # Rapid.Recipes - An app to find recipe quick and easy!
 
-- [] Getting Started: In this section include the link to your deployed app and any instructions you deem important. https://rapidrecipes.herokuapp.com/recipes#
+ https://rapidrecipes.herokuapp.com/recipes#
 
-- [X] <Your app title>: A description of your app. Background info of the game is a nice touch.
+
 1. When you click on the link to Rapid Recipes you will be asked to log in.
 2. Then you will be directed to categories of recipes from breakfast, lunch, dinner or even Create your recipe.
 3. Once you make a choice you will be directed to the page with the recipe and ingredients on it.
@@ -18,7 +18,7 @@ In my spare time, I enjoy cooking and some may say it's a stress reliever. I don
 
 [Trello](https://trello.com/b/G7G7evUa/cookbook)
 
-- [X]Technologies Used: List of the technologies used.
+
 ### Technologies used:
 - HTML, CSS, JavaScript
 - MongoDB
@@ -27,6 +27,6 @@ In my spare time, I enjoy cooking and some may say it's a stress reliever. I don
 - Express
 - OAuth authorization
 ---
-- [] Screenshot(s): Images of your actual app.
+
 
 
