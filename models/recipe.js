@@ -13,17 +13,16 @@ var recipeSchema = new Schema({
     title: {
         type: String,
     },
-    ingredients: [ingredientSchema], 
+    ingredients: String, 
     instruction: {
         type: String,
     },
     category: {
         type: String,
     },
-    user: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
+    user: {
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('Recipes', recipeSchema);
