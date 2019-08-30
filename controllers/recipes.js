@@ -37,13 +37,8 @@ function newRecipe(req, res) { // page adding the new recipes
 
 function createRecipe(req, res) { //the post 
   Recipe.create(req.body, function(err, recipe) {
-<<<<<<< HEAD
-    console.log(recipe)
-    res.redirect(`/ingredients/${recipe._id}`);
-=======
     // console.log(something)
     res.redirect('/ingredients/' + recipe._id);
->>>>>>> 36d350204e5f1eca68e77ef4f9fed3b5a2ba7588
   });
   // console.log(req.body)
 }
