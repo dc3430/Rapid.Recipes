@@ -31,14 +31,16 @@ function show(req, res) { // Recipe Details
   });
 }
 
-function newRecipe(req, res) { // new recipes
+function newRecipe(req, res) { // page adding the new recipes
   res.render('recipes/new', { user: req.user });
 }
 
-function createRecipe(req, res) {
-  Recipe.create(req.body, function(err) {
-    res.redirect('/recipes');
+function createRecipe(req, res) { //the post 
+  Recipe.create(req.body, function(err, recipe) {
+    // console.log(something)
+    res.redirect('/ingredients/' + recipe._id);
   });
+  // console.log(req.body)
 }
 
 function edit(req, res) {

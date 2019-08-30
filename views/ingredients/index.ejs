@@ -7,6 +7,31 @@
     <title>Ingredients</title>
 </head>
 <body>
-    
+    <h1 class = "header">Time to add Ingredients!</h1>
+    <nav class = "nav1">
+        <a href="/recipes">Home</a>
+        <a href="/logout"><i class="logout"></i>Log Out</a>
+    </nav>
+    <br>
+    <% if(recipe.ingredients) { %>
+    <div class="ing">
+        <table>
+          <tbody id="recipe-ingredients">
+            <% recipe.ingredients.forEach((i) => { %>
+              <tr>
+                <td><%= i.name %></td> 
+                <td><%= i.amount %></td> 
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div> 
+    <% } %>
+    <form action="/ingredients" method="POST">
+      <button type="submit">Add Ingredients</button>
+      <input type="text" name="ingredient">
+      <input type="text" name="amount">
+      <input type="hidden" name="id" value="<%= recipe._id %>">
+    </form>
 </body>
 </html>
