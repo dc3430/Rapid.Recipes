@@ -38,7 +38,8 @@ function newRecipe(req, res) { // page adding the new recipes
 function createRecipe(req, res) { //the post 
   Recipe.create(req.body, function(err, recipe) {
     // console.log(something)
-    res.redirect('/ingredients/' + recipe._id);
+    console.log("recipe successfully added")
+    res.redirect('/recipes');
   });
   // console.log(req.body)
 }
@@ -59,4 +60,5 @@ function deleteRecipe(req, res){
       res.redirect('/recipes');
   });
 }
+
 
