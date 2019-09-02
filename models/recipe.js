@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 var ingredientSchema = new Schema({
     ingredient: {
         name: String,
-        type: String,
         amount: String,
     },
 });
@@ -14,7 +13,7 @@ var recipeSchema = new Schema({
     title: {
         type: String,
     },
-    ingredients: [ingredientSchema],
+    ingredient: [ingredientSchema],
     instruction: {
         type: String,
     },

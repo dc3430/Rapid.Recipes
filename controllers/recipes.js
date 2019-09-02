@@ -3,7 +3,7 @@ var Recipe = require('../models/recipe');
 module.exports = {
   index, // show all
   show, // show one
-  createRecipe, // create new recipe
+  createRecipe, // is add - create new recipe 
   new: newRecipe, // serve new recipe form (can be served for update too)
   edit, // update recipe
   delete: deleteRecipe, // delete your recipe
@@ -19,6 +19,7 @@ function update(req, res) {
 
 function index(req, res) { //home page
   Recipe.find({}, (err, recipes) => {
+    console.log('- index log -')
     console.log(err)
     console.log(recipes)
     res.render('recipes/index', { recipes })
@@ -26,8 +27,11 @@ function index(req, res) { //home page
 }
 
 function show(req, res) { // Recipe Details
+  console.log(req.params.id)
   Recipe.findById(req.params.id, function(err, recipe) {
-    res.render('recipes/show', { title: 'Recipe Details', recipe });
+    console.log(err);
+    console.log(recipe);
+    res.render('recipes/show', { recipe: recipe });
   });
 }
 
@@ -36,7 +40,10 @@ function newRecipe(req, res) { // new recipes
 }
 
 function createRecipe(req, res) {
+  console.log('- create log -')
+  console.log(req.body);
   Recipe.create(req.body, function(err) {
+    console.log(err)
     res.redirect('/recipes');
   });
 }
