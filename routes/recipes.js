@@ -8,7 +8,7 @@ router.get('/new', recipesCtrl.new);//form to add a new recipe
 router.get('/:id', recipesCtrl.show);//will provide recipe details This is where we can add the ingredients later
 
 router.post('/', recipesCtrl.createRecipe);//will add the recipe to the database
-router.put('/:id', recipesCtrl.update) // will update the recipe
+router.post('/:id', recipesCtrl.update) // will update the recipe
 router.delete('/:id', recipesCtrl.delete)//will delete the recipe from the database
 router.get('/:id/edit', recipesCtrl.edit);//will bring up the form to update the recipe
 

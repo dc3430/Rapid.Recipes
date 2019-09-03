@@ -3,9 +3,9 @@ var router = express.Router();
 var ingredientsCtrl = require('../controllers/ingredients');
 
 // base is /ingredients
-router.get('/', ingredientsCtrl.index);
+router.get('/:id', ingredientsCtrl.index);
 
-router.post('/', ingredientsCtrl.create);//will add the ingredients to the database
+router.post('/:id', ingredientsCtrl.create);//will add the ingredients to the database
 
 
 

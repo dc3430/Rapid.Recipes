@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ingredientSchema = new Schema({
-    ingredient: {
+    // ingredient: {
         name: String,
         amount: String,
-    },
+    // },
 });
 
 var recipeSchema = new Schema({

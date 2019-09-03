@@ -15,20 +15,22 @@ module.exports = {
 
 // }
 
-function createIngredient(req, res) {
-    Recipe.findById(req.params.id, recipe => {
-        recipe.ingredients.push(req.body)
+function createIngredient(req, res) {  // adds to db
+    console.log(req.params.id)
+    Recipe.findById(req.params.id, (err, recipe) => {
+        console.log('- create ingredient -')
+        // console.log(recipe.ingredient)
+        recipe.ingredient.push(req.body)
             recipe.save(function(err) {
-                res.redirect('/ingredients')
+                res.redirect('/ingredients/' + recipe._id)
         })
      })
 }
 
-function index(req, res) {
-    Recipe.find({}, (err, ingredients) => {
+function index(req, res) { //display page
+    Recipe.findById(req.params.id, (err, recipe) => {
       console.log(err)
-      console.log(ingredients)
-      res.render('ingredients/index', { ingredients })
+    //   console.log(recipe)
+      res.render('ingredients/index', { recipe })
     })
   }
-
