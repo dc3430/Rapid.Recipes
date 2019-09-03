@@ -35,6 +35,7 @@ function show(req, res) { // Recipe Details
   });
 }
 
+
 function newRecipe(req, res) { // new recipes page
   res.render('recipes/new', { user: req.user });
 }
@@ -48,6 +49,7 @@ function createRecipe(req, res) {  //add to database
   });
 }
  
+
 function edit(req, res) {
   Recipe.findById(req.params.id, (err, recipe) => {
     if (err) throw err
@@ -64,4 +66,5 @@ function deleteRecipe(req, res){
       res.redirect('/recipes');
   });
 }
+
 

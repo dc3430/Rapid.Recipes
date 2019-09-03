@@ -8,22 +8,23 @@ var ingredientSchema = new Schema({
         amount: String,
     // },
 });
-
+// var any = new Schema({name: String})
 var recipeSchema = new Schema({
     title: {
         type: String,
     },
+
     ingredient: [ingredientSchema],
+
     instruction: {
         type: String,
     },
     category: {
         type: String,
     },
-    user: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
+    user: {
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('Recipes', recipeSchema);

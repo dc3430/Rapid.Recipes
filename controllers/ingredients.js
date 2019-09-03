@@ -3,7 +3,7 @@ var Recipe = require('../models/recipe');
 module.exports = {
     index,
     create: createIngredient,
-    // delete: deleteIngredients,
+    delete: deleteIngredients,
     // new: newView,
 }
 
@@ -11,9 +11,11 @@ module.exports = {
     
 // }
 
-// function deleteIngredients(req, res) {
+function deleteIngredients(req, res) {
+    Ingredients.findByIdAndDelete(req.params.id, function(err, ingredients) {
 
-// }
+    });
+}
 
 function createIngredient(req, res) {  // adds to db
     console.log(req.params.id)
@@ -24,7 +26,18 @@ function createIngredient(req, res) {  // adds to db
             recipe.save(function(err) {
                 res.redirect('/ingredients/' + recipe._id)
         })
-     })
+    })
+
+    // Recipe.findByIdAndUpdate(req.body.id, { ingredient: [{'name': req.body.ingredient}] }, function(err) {
+    // // Recipe.findByIdAndUpdate(req.body.id, { title: 'newtitle' }, function(err) {
+    //     console.log(err)
+    //     // console.log(doc)
+    //     res.redirect('/ingredients/' + req.body.id);
+    // });
+            // recipe.save(function(err) {
+            //     res.redirect('/ingredients')
+        // });
+    //  });
 }
 
 function index(req, res) { //display page
