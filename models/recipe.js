@@ -20,10 +20,9 @@ var recipeSchema = new Schema({
     category: {
         type: String,
     },
-    user: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }],
+    user: {
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('Recipes', recipeSchema);
