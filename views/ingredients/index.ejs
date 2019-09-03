@@ -7,31 +7,40 @@
     <title>Ingredients</title>
 </head>
 <body>
-    <h1 class = "header">Time to add Ingredients!</h1>
+
+    <h1 class = "header">Add Ingredients  <% recipe.title %></h1>
     <nav class = "nav1">
         <a href="/recipes">Home</a>
         <a href="/logout"><i class="logout"></i>Log Out</a>
+        <a href="/recipes/<%= recipe._id%>">Back to Recipe</a></td>
     </nav>
-    <br>
-    <% if(recipe.ingredients) { %>
-    <div class="ing">
-        <table>
-          <tbody id="recipe-ingredients">
-            <% recipe.ingredients.forEach((i) => { %>
-              <tr>
-                <td><%= i.name %></td> 
-                <td><%= i.amount %></td> 
+    <% if (recipe.ingredient.length != 0) {%>
+    <table>
+       <thead>
+           <tr>   
+               <th>Ingredients</th>
+               <th>amount</th>         
             </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div> 
+        </thead>
+        <tbody>
+        <% recipe.ingredient.forEach((ingredient) => { %>
+          <tr>       
+            <td><%= ingredient.name %></td>
+            <td><%= ingredient.amount %></td>
+          </tr>
+        <% }) %>
+        </tbody>
+    </table>
     <% } %>
-    <form action="/ingredients" method="POST">
-      <button type="submit">Add Ingredients</button>
-      <input type="text" name="ingredient">
-      <input type="text" name="amount">
-      <input type="hidden" name="id" value="<%= recipe._id %>">
+    <form action="/ingredients/<%=recipe._id%>" method="POST">
+        <label >Name: 
+            <textarea name="name" rows="2" cols="20"></textarea>
+        </label>
+        <label>Amount: 
+            <textarea name="amount" rows="2" cols="20"></textarea>
+        </label>
+        <button type="submit">Add Ingredient</button>
+
     </form>
 </body>
 </html>

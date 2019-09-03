@@ -17,16 +17,14 @@ function deleteIngredients(req, res) {
     });
 }
 
-function createIngredient(req, res) {
-    // console.log(req.body)
-    // console.log(req.params)        //call the model get the id of the recipe
-    Recipe.findById(req.body.id, function(err, recipe) { //req.body.id the whole thing for ingredients id
-        recipe.ingredients.push({   // push ingredient to array
-            name: req.body.ingredient, //the name of the recipe
-            amount: req.body.amount
-        }) 
-        Recipe.replaceOne({ _id: recipe._id}, recipe, function() {
-            res.redirect('/ingredients/' + req.body.id);
+function createIngredient(req, res) {  // adds to db
+    console.log(req.params.id)
+    Recipe.findById(req.params.id, (err, recipe) => {
+        console.log('- create ingredient -')
+        // console.log(recipe.ingredient)
+        recipe.ingredient.push(req.body)
+            recipe.save(function(err) {
+                res.redirect('/ingredients/' + recipe._id)
         })
     })
 
@@ -42,11 +40,10 @@ function createIngredient(req, res) {
     //  });
 }
 
-function index(req, res) {
+function index(req, res) { //display page
     Recipe.findById(req.params.id, (err, recipe) => {
-    //   console.log(err)
+      console.log(err)
     //   console.log(recipe)
       res.render('ingredients/index', { recipe })
     })
   }
-

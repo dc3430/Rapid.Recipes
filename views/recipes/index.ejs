@@ -35,9 +35,8 @@
               <% recipes.forEach((r) => { %>
                 <tr>
                   <td><%= r.title %></td>
-                  <td><%= r.ingredients %></td>
-                  <td><%= r.category %></td>
-                  <td><%= r.user %></td>
+                  <td><%= r.instruction %></td>
+
                   <td><a href="/recipes/<%= r._id%>">Details</a></td>
               </tr>
               <% }) %>

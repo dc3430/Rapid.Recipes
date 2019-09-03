@@ -13,32 +13,55 @@
       <nav class = "nav1">
           <a href="/recipes">Home</a>
           <a href="/logout"><i class="logout"></i>Log Out</a>
-          <a href="/recipes/<%= recipe._id %>/edit">Edit Recipes</a>
+
+
           
       </nav>
     
       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
       </form>
-      
+      <form action="/recipes/<%= recipe._id %>/edit" method="GET">
+        <button type="submit">Edit Recipes</button>
+      </form>
+      <form action="/ingredients/<%= recipe._id %>" method="GET">
+        <button type="submit">Edit Ingredients</button>
+      </form>
   <table>
     <thead>
       <tr>
         <th>Title</th>
-        <th>Ingredients</th>
-        <th>Category</th>
+        <th>Instruction</th>
         <th>User</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= recipe.title %></td>
-        <td><%= recipe.ingredients %></td>
-        <td><%= recipe.category %></td>
+        <td><%= recipe.instruction %></td>
         <td><%= recipe.user %></td>
       </tr>
     </tbody>
   </table>
+  <br>
+  <% if (recipe.ingredient.length != 0) {%>
+    <table>
+       <thead>
+           <tr>   
+               <th>Ingredients</th>
+               <th>amount</th>         
+            </tr>
+        </thead>
+        <tbody>
+        <% recipe.ingredient.forEach((ingredient) => { %>
+          <tr>       
+            <td><%= ingredient.name %></td>
+            <td><%= ingredient.amount %></td>
+          </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <% } %>
 
 </body>
 </html>
