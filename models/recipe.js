@@ -13,7 +13,7 @@ var recipeSchema = new Schema({
     title: {
         type: String,
     },
-    ingredients: [ingredientSchema], 
+    ingredient: [ingredientSchema],
     instruction: {
         type: String,
     },

@@ -15,18 +15,13 @@
             <a href="/logout"><i class="logout"></i>Log Out</a>
         </nav>
 
-    <form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
+    <form action="/recipes/<%=recipe._id%>" method="POST">
         <label>Title: 
-        <textarea name="title" rows="2" cols="20"></textarea>
+        <textarea name="title" rows="2" cols="20"><%= recipe.title %></textarea>
         </label>
-        <label >Ingredients: 
-            <textarea name="ingredients" rows="2" cols="20"></textarea>
-        </label>
-        <label>Instruction: 
-            <textarea name="instruction" rows="2" cols="20"></textarea>
-        </label>
-        <label>Author: 
-            <textarea name="User"rows="2" cols="20"></textarea>
+
+        <label>Instructions: 
+            <textarea name="instruction" rows="2" cols="20"><%= recipe.title %></textarea>
         </label>
         <button type="submit">Add Recipe</button>
     </form>

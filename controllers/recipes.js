@@ -3,7 +3,7 @@ var Recipe = require('../models/recipe');
 module.exports = {
   index, // show all
   show, // show one
-  createRecipe, // create new recipe
+  createRecipe, // is add - create new recipe 
   new: newRecipe, // serve new recipe form (can be served for update too)
   edit, // update recipe
   delete: deleteRecipe, // delete your recipe
@@ -13,36 +13,42 @@ module.exports = {
 
 function update(req, res) {
   Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, recipe) {
-    res.render(`recipes/show`);
+    res.render(`recipes/show`, { recipe });
   });
 }
 
 function index(req, res) { //home page
   Recipe.find({}, (err, recipes) => {
-    console.log(err)
-    console.log(recipes)
+    // console.log('- index log -')
+    // console.log(err)
+    // console.log(recipes)
     res.render('recipes/index', { recipes })
   })
 }
 
 function show(req, res) { // Recipe Details
+  console.log(req.params.id)
   Recipe.findById(req.params.id, function(err, recipe) {
-    res.render('recipes/show', { title: 'Recipe Details', recipe });
+    // console.log(err);
+    // console.log(recipe);
+    res.render('recipes/show', { recipe: recipe });
   });
 }
 
-function newRecipe(req, res) { // page adding the new recipes
+function newRecipe(req, res) { // new recipes page
   res.render('recipes/new', { user: req.user });
 }
 
-function createRecipe(req, res) { //the post 
-  Recipe.create(req.body, function(err, recipe) {
-    // console.log(something)
-    res.redirect('/ingredients/' + recipe._id);
+function createRecipe(req, res) {  //add to database
+  // console.log('- create log -')
+  // console.log(req.body);
+  Recipe.create(req.body, function(err, created) { //created is giving you the objected
+    // console.log(err)
+    res.redirect('/ingredients/' + created._id);
   });
   // console.log(req.body)
 }
-
+ 
 function edit(req, res) {
   Recipe.findById(req.params.id, (err, recipe) => {
     if (err) throw err
